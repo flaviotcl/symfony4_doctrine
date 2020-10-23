@@ -1,0 +1,17 @@
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env
+/public/bundles/
+/var/
+/vendor/
+/.data
+/.idea
+###< symfony/framework-bundle ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###
