@@ -1,0 +1,47 @@
+<?php
+
+namespace App\DataFixtures;
+
+use App\Entity\Especie;
+use App\Entity\Raca;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Persistence\ObjectManager;
+
+class AppFixtures extends Fixture
+{
+    public function load(ObjectManager $manager)
+    {
+        // $product = new Product();
+        // $manager->persist($product);
+        $especies = [
+            "Cachorro" => [
+                    ['nome' => "SRD"],
+                    ['nome' => "Boxer"],
+                    ['nome' => "Shitzu"],
+                    ['nome' => "Poodle"],
+            ],
+            "Gato" =>[
+                ['nome' => "SRD"],
+                ['nome' => "Siamês"],
+                ['nome' => "Angorá"],
+            ]
+        ];
+
+        foreach ($especies as $especie => $racas)
+        {
+            $obj = new Especie();
+            $obj->setNome($especie);
+            $manager->persist($obj);
+
+            foreach ($racas as $raca)
+            {
+                $obj2 =  new Raca();
+                $obj2->setNome($raca['nome']);
+                $obj2->setEspecie($obj);
+                $manager->persist($obj2);
+            }
+        }
+
+        $manager->flush();
+    }
+}
