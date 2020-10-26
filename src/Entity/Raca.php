@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\RacaRepository;
 use Doctrine\ORM\Mapping as ORM;
+use PhpParser\Node\Scalar\String_;
 
 /**
  * @ORM\Entity(repositoryClass=RacaRepository::class)
@@ -74,5 +75,10 @@ class Raca
         return $this;
     }
 
+
+    public function getNomeEspecie()
+    {
+        return $this->getEspecie() ? $this->getEspecie() : null;
+    }
 
 }

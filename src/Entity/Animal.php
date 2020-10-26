@@ -100,7 +100,7 @@ class Animal
     /**
      * @return object
      */
-    public function getRaca(): object
+    public function getRaca()
     {
         return $this->raca;
     }
