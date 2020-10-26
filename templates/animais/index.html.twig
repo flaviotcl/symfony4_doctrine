@@ -28,8 +28,8 @@
             {% for animal in animais %}
                 <tr>
                     <td>{{ animal.id }}</td>
-                    <td><a href="">{{ animal.nome }}</a></td>
-                    <td>{{ animal.dataNascimento }}</td>
+                    <td><a href="{{ path('visualizar_animal',  {'id': animal.id}   )}}">{{ animal.nome }}</a></td>
+                    <td>{{ animal.dataNascimento|date('d/m/Y') }}</td>
                 </tr>
 
             {% else %}

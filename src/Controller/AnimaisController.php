@@ -23,4 +23,18 @@ class AnimaisController extends AbstractController
             'animais' => $animais
         ];
     }
+
+    /**
+     * @Route("/animal/visualizar/{id}", name="visualizar_animal")
+     * @Template("animais/view.html.twig")
+     * @param Animal $animal
+     **/
+    public function view( Animal $animal)
+    {
+
+        return[
+            'animal' => $animal
+        ];
+
+    }
 }

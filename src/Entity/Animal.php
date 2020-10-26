@@ -25,9 +25,7 @@ class Animal
     private $nome;
 
     /**
-     * @var date
-     *
-     * @ORM\Column(type="date")
+     *  @ORM\Column(type="date")
      */
     private $data_nascimento;
 
@@ -88,19 +86,12 @@ class Animal
         return $this;
     }
 
-    /**
-     * @return date
-     */
-    public function getDataNascimento(): date
+    public function getDataNascimento(): ?\DateTimeInterface
     {
         return $this->data_nascimento;
     }
 
-    /**
-     * @param date $data_nascimento
-     * @return Animal
-     */
-    public function setDataNascimento(date $data_nascimento): Animal
+    public function setDataNascimento(?\DateTimeInterface $data_nascimento): self
     {
         $this->data_nascimento = $data_nascimento;
         return $this;
