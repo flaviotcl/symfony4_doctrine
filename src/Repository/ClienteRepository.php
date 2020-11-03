@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Cliente;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use PDO;
 
 /**
  * @method Cliente|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,7 +19,17 @@ class ClienteRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Cliente::class);
     }
+    public function qtsAnimaisPorCliente()
+    {
+        $sql = "select COUNT(ac.animal_id) as qtde,
+                c.nome FROM animal_cliente ac INNER JOIN 
+                cliente c ON c.id = ac.cliente_id
+                GROUP BY c.nome
+        ";
 
+        return $this->getEntityManager()->getConnection()->executeQuery($sql)
+            ->fetchAll(PDO::FETCH_OBJ);
+    }
     // /**
     //  * @return Cliente[] Returns an array of Cliente objects
     //  */

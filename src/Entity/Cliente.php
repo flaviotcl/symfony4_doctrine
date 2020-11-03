@@ -44,7 +44,7 @@ class Cliente
     /**
      * @var object
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Endereco", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Endereco", inversedBy="id", cascade={"persist"})
      */
     private $endereco;
     /**
@@ -58,7 +58,7 @@ class Cliente
     /**
      * @return object
      */
-    public function getAnimal(): object
+    public function getAnimal()
     {
         return $this->animal;
     }
@@ -76,7 +76,7 @@ class Cliente
     /**
      * @return object
      */
-    public function getEndereco(): object
+    public function getEndereco()
     {
         return $this->endereco;
     }

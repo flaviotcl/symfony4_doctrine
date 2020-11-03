@@ -7,4 +7,29 @@
         <h1 class="display-2">PetShop - Scholl Of Net</h1>
         <p class="lead">Avançando com Symfony4 - Indo mais fundo com Doctrine !</p>
     </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-striped">
+                {% for qts in qts_animais %}
+                    <tr>
+                        <th>{{ qts.nome }}</th>
+                        <td>{{ qts.qtde }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+        <div class="col-md-6">
+            <table class="table table-striped">
+                {% for result in qtde_por_raca %}
+                    <tr>
+                        <th>{{ result.nome }}</th>
+                        <td>{{ result.qtde }}</td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
 {% endblock %}
